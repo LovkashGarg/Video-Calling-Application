@@ -10,16 +10,28 @@ app.use(cors());
 const appId = process.env.ZEGO_APP_ID;
 const serverSecret = process.env.ZEGO_SERVER_SECRET;
 
+function randomID(len) {
+    let result = '';
+    if (result) return result;
+    var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
+      maxPos = chars.length,
+      i;
+    len = len || 5;
+    for (i = 0; i < len; i++) {
+      result += chars.charAt(Math.floor(Math.random() * maxPos));
+    }
+    return result;
+  }
 app.get('/generate-token', (req, res) => {
+    
   // Generate the kitToken using the Zego appId and serverSecret in the backend
-  const roomId = req.roomId;
-  const userId = req.userId;
+  const roomId = req.queryroomId;
 
   const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
     appId,
     serverSecret,
     roomId,
-    userId
+    randomID(5)
   );
 
   res.json({ kitToken });

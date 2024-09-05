@@ -3,25 +3,18 @@ import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 import { useParams } from 'react-router-dom';
 
 
-function randomID(len) {
-  let result = '';
-  if (result) return result;
-  var chars = '12345qwertyuiopasdfgh67890jklmnbvcxzMNBVCZXASDQWERTYHGFUIOLKJP',
-    maxPos = chars.length,
-    i;
-  len = len || 5;
-  for (i = 0; i < len; i++) {
-    result += chars.charAt(Math.floor(Math.random() * maxPos));
-  }
-  return result;
-}
+
 
 
 const Room=()=> {
       const {roomId} =useParams();
       let myMeeting = async (element) => {
      // generate Kit Token
-       const kittoken=fetch("http://localhost:3000")
+     const response = await fetch(
+        `https://video-calling-mul.onrender.com/generate-token?roomId=${roomId}`
+      );
+      
+      const kittoken = await response.json();
 
      // Create instance object from Kit Token.
       const zp = ZegoUIKitPrebuilt.create(kitToken);
