@@ -25,7 +25,8 @@ function randomID(len) {
 app.get('/generate-token', (req, res) => {
     
   // Generate the kitToken using the Zego appId and serverSecret in the backend
-  const roomId = req.queryroomId;
+  const roomId = req.query.roomId;
+  console.log(roomId)
 
   const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(
     appId,

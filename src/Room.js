@@ -15,7 +15,7 @@ const Room=()=> {
       );
 
       const kittoken = await response.json();
-
+       console.log("kit token",kittoken);
      // Create instance object from Kit Token.
       const zp = ZegoUIKitPrebuilt.create(kittoken);
       // start the call
