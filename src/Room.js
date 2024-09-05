@@ -13,11 +13,11 @@ const Room=()=> {
      const response = await fetch(
         `https://video-calling-mul.onrender.com/generate-token?roomId=${roomId}`
       );
-      
+
       const kittoken = await response.json();
 
      // Create instance object from Kit Token.
-      const zp = ZegoUIKitPrebuilt.create(kitToken);
+      const zp = ZegoUIKitPrebuilt.create(kittoken);
       // start the call
       zp.joinRoom({
         container: element,
