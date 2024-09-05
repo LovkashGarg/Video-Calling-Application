@@ -22,7 +22,7 @@ const Room=()=> {
       let myMeeting = async (element) => {
      // generate Kit Token
      const gh3t2dlskgHd123 = process.env.REACT_gh3t2dlskgHd123;
-     const gsh$2mpo9362 = process.env.REACT_gsh$2mpo9362;
+     const gsh$2mpo9362 = process.env.REACT_gsh2mpo9362;
       const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(gh3t2dlskgHd123, gsh$2mpo9362, roomId,  randomID(5),  randomID(5));
 
      // Create instance object from Kit Token.
