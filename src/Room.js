@@ -51,7 +51,7 @@ const Room=()=> {
     <div
       className="myCallContainer"
       ref={myMeeting}
-      style={{ width: '50vw', height: '50vh' }}
+      style={{ width: '100vw', height: '100vh' }}
     ></div>
   );
 }
